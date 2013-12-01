@@ -10,13 +10,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 
-group :develpment, :test do
-	gem 'sqlite3'
+group :development, :test do
+     gem 'sqlite3'
 end
 
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+     gem 'pg'
+     gem 'rails_12factor'
 end
 
 group :doc do

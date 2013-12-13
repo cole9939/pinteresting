@@ -17,4 +17,13 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  
+  def profile
+    @user = User.find_by_name(params[:name])
+    unless @user.present?
+      redirect_to root_url, notice: "You don't have access to the requested page"
+    end
+  end
+  
 end

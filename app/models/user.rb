@@ -7,5 +7,11 @@ class User < ActiveRecord::Base
 
   has_many :pins
 
-  validates :name, presence: true
+  validates :name, presence: true, :uniqueness => true
+  after_create :send_welcome_email
+
+  private
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
+  end
 end

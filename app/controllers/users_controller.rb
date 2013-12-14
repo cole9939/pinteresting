@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   
   def profile
     @user = User.find_by_name(params[:name])
+    @pins = @user.pins.order("created_at DESC") if @user
+
     unless @user.present?
       redirect_to root_url, notice: "You don't have access to the requested page"
     end

@@ -8,12 +8,12 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :username %>
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :email %>
+        <%= f.label :email%>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
 
@@ -22,6 +22,11 @@
         <%= f.password_field :password, class: "form-control" %>
       </div>
 
+      <div class="form-group">
+        <%= f.label "Link to your Website"  %>
+        <%= f.text_field :url, autofocus: true, class: "form-control" %>
+      </div>
+      
       <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary" %>
       </div>

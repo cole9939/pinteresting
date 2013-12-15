@@ -9,7 +9,7 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :username %>
         <%= f.text_field :name, class: "form-control", :autofocus => true %>
       </div>
 
@@ -26,6 +26,11 @@
       <div class="form-group">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
         <%= f.password_field :current_password, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Link to your website" %>
+        <%= f.text_field :url, class: "form-control", :autofocus => true %>
       </div>
 
       <div class="form-group">

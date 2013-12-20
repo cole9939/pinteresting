@@ -18,9 +18,11 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'actionmailer', '~> 4.0.0'
 gem 'google-analytics-rails'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development, :test do
      gem 'sqlite3'
+     gem 'debugger'
 end
 
 group :production do

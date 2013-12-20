@@ -1,10 +1,14 @@
 Pinteresting::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :pins
 
   devise_for :users
   root "pins#index"
   get "about" => "pages#about" # creates about_path
   get '/:name' => 'users#profile'
+  
+  get '/admin/login/:id' => 'application#login_via_super_admin', :as => :login_via_super_admin
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

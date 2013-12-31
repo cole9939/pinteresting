@@ -81,6 +81,16 @@ Pinteresting::Application.configure do
   # Required for Heroku
   # Note to set this to your actual host
   config.action_mailer.default_url_options = { :host => 'coleman-testproject.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  
+  config.active_support.deprecation = :notify
+  ActionMailer::Base.smtp_settings = {
+    :address        => "smtp.sendgrid.net",
+    :port           => "25",
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD']
+  }
 
   #Google Analytics Tracking Code
   GA.tracker = "UA-46247721-1"

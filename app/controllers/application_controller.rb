@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
  # Prevent CSRF attacks by raising an exception.
  # For APIs, you may want to use :null_session instead.
  protect_from_forgery with: :exception
- 
+ before_filter :redirect_with_www
  before_filter :configure_permitted_parameters, if: :devise_controller?
+ 
 
   def login_via_super_admin
     user = User.find_by_id(params[:id])
@@ -17,6 +18,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_with_www
+    if request.get? && not_allow_protocol_and_subdomain?
+      redirect_to request.protocol + request.host.sub!('', 'www.') + request.path and return
+    end
+  end
+
+  def not_allow_protocol_and_subdomain?
+    return false if Rails.env.to_s === 'development'
+    request.subdomains.blank? 
+  end
+  
 protected
 
  def configure_permitted_parameters

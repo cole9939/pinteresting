@@ -1,4 +1,4 @@
-Pinteresting::Application.configure do
+Porn_Loyalty::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -80,7 +80,7 @@ Pinteresting::Application.configure do
 
   # Required for Heroku
   # Note to set this to your actual host
-  config.action_mailer.default_url_options = { :host => 'coleman-testproject.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'www.pornloyalty.com' }
   config.action_mailer.delivery_method = :smtp
   
   config.active_support.deprecation = :notify

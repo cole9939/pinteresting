@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 
   def redirect_with_www
     if request.get? && not_allow_protocol_and_subdomain?
-      #redirect_to request.protocol + request.host.sub!('', 'www.') + request.path and return
       redirect_to request.protocol + request.host.sub!('', 'www.') + request.path + "?" +request.query_string and return
     end
   end

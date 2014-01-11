@@ -3,7 +3,7 @@
     <div class="panel panel-default">
     <div class="panel-body">
     <p><strong><%= @user.name if @user.name %></strong></p>
-    <p><strong><%= (link_to @user.url, "http://"+@user.url) if @user.url %></strong></p>
+    <p><strong><%= (link_to @user.url, "http://"+@user.url, :target => '_blank') if @user.url %></strong></p>
     </div>
   </div>
 

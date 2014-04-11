@@ -6,17 +6,41 @@
     <div class="panel-heading center">
       <%= image_tag @pin.image.url(:medium) %>
     </div>
+    
     <div class="panel-body">
-    <p><%= @pin.description %></p>
-    <p><strong><%= @pin.user.name if @pin.user %></strong></p>
+      <ul class="list-group">
+        <li class="list-group-item center ol-md-offset-2">
+          <span style="margin: 10px;">
+          <div class="fb-like" data-href="http://www.pornloyalty.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>          
+          </span> | 
+          <span style="margin: 2px 5px;">
+            <%= tweet_button(:via => "myself", :url => "http://www.pornloyalty.com/", :text => "Tweet", :count => "horizontal") %>
+          </span> | 
+          <span style="margin: 10px;">
+            <%= (link_to @pin.user.url, "http://"+@pin.user.url, :target => '_blank') if @pin.user.url  %>
+          </span>
+        </li>
+      </ul>
+      
+      <p><%= @pin.description %></p>
+      <p><strong><%= @pin.user.name if @pin.user %></strong></p>
 
-    <% if @pin.user == current_user %>
-      <%= link_to edit_pin_path(@pin) do %>
-        <span class="glyphicon glyphicon-edit"></span>
-        Edit
+      <% if @pin.user == current_user %>
+        <%= link_to edit_pin_path(@pin) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          Edit
+        <% end %>
       <% end %>
-    <% end %>
     </div>
   </div>
 
 </div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

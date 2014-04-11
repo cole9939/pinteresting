@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'devise', '~> 3.2.2'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk', '~> 1.20.0'
@@ -19,7 +19,9 @@ gem 'will_paginate-bootstrap'
 gem 'actionmailer', '~> 4.0.0'
 gem 'google-analytics-rails'
 gem 'activeadmin', github: 'gregbell/active_admin'
-
+gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
+gem "tweet-button"
+  
 group :development, :test do
      gem 'sqlite3'
      gem 'debugger'

@@ -1,13 +1,17 @@
-<%= render 'pages/home' unless user_signed_in? %>
-
+<div class="row">
+  <div class="col-md-2"><%= render 'users/top_rated_users'%></div>
+  <div class="col-md-10"><%= render 'pages/home' unless user_signed_in? %>
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
-    <div class="box panel panel-default">
+    <div class="box panel panel-default" >
       <%= link_to image_tag(pin.image.url(:medium)), pin %>
       <div class="panel-body">
         <p><%= pin.description %></p>
         <p><strong><%= pin.user.name if pin.user %></strong></p>
-        
+        <%if !current_user.nil?%>
+          <p><b>Score:</b> <%=pin.score%></p>
+        <%end%>
+  
         <% if current_user && pin.user == current_user %>
           <div class="actions">
             <%= link_to edit_pin_path(pin) do %>
@@ -29,3 +33,7 @@
 <div class="center">
   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 </div>
+</div>
+</div>
+
+

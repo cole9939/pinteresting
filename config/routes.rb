@@ -7,7 +7,9 @@ Porn_Loyalty::Application.routes.draw do
   root "pins#index"
   get "about" => "pages#about" # creates about_path
   get '/:name' => 'users#profile'
-  
+  post '/score_up' => 'users#score_up'
+  post '/score_down' => 'users#score_down'
+
   get '/admin/login/:id' => 'application#login_via_super_admin', :as => :login_via_super_admin
   
   # The priority is based upon order of creation: first created -> highest priority.

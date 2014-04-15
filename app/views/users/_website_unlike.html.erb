@@ -1,0 +1,21 @@
+<%if params[:id].nil? %>
+<% params[:id]=params[:pin_id] %>
+<%end%>
+<%if !url(params[:id]).blank? %>
+<%=url(params[:id])%>&nbsp;&nbsp;<a id="web_click" href="<%=url(params[:id])%>" target="_blank">unlike(<%= @web_count%>)</a>
+<%end%>
+<script>
+$(document).ready(function(){
+$("#web_click").click(function() {
+   var id ="<%=@pin.id%>"
+  $.ajax({
+    type: 'POST',
+    url: "/score_down",
+    data:{pin_id: id ,type: "website"}
+    });
+    return false;
+    });
+    
+    });
+
+</script>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  pin_id: 
+  user_id: 
+
+two:
+  type: 
+  pin_id: 
+  user_id: 

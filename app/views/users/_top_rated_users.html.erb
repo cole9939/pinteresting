@@ -1,0 +1,43 @@
+<%if !current_user.nil?%>
+    <div class="box panel panel-default" style="background-color:#b0c4de; height:400px; float:left;">
+    <b>Top users Today:</b>
+    <br>
+    <%if !@pin_scores_day.blank?%>
+      <% @pin_scores_day.each_with_index do |user,index|%>
+        <% if index<5 %>
+         <%=user.name%>&nbsp;&nbsp;<b>Score:&nbsp;</b>(<%= user_score_day(user) %>)
+        <br>
+      <%end%>  
+      <%end%>
+    <%else%>
+    <p>No user...</p>  
+    <%end%>
+    <br>
+    <b>Top users Week:</b>
+    <br>
+    <%if !@pin_scores_week.blank?%>
+      <% @pin_scores_week.each_with_index do |user,index|%>
+        <%if index<5%>
+           <%=user.name%>&nbsp;&nbsp;<b>Score:&nbsp;</b>(<%= user_score_week(user) %>)
+          <br>
+      <%end%>  
+      <%end%>
+    <%else%>
+    <p>No user...</p>   
+    <%end%>
+    <br>
+    <b>Top users Month:</b>
+    <br>
+    <%if !@pin_scores_month.blank?%>
+      <% @pin_scores_month.each_with_index do |user,index|%>
+      <%if index<5%>
+        <%=user.name%>&nbsp;&nbsp;<b>Score:&nbsp;</b>(<%= user_score_month(user) %>)
+        <br>
+      <%end%>  
+      <%end%>
+    <%else%>
+    <p>No user...</p>   
+    <%end%>
+    <br>
+  </div>
+<%end%>

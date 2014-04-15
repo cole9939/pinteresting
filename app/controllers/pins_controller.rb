@@ -4,10 +4,16 @@ class PinsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
+    @pins = Pin.all.order("created_at DESC")
+    @pins=@pins.sort_by{|e| -e[:score]}
+    @pins=Kaminari.paginate_array(@pins).page(params[:page]).per(50)
+    @pin_scores_day=Pin.score_of_day
+    @pin_scores_week=Pin.score_of_week
+    @pin_scores_month=Pin.score_of_month 
   end
 
   def show
+    @web_count=Score.where(:pin_id=>params[:id],:click_on=>"website").count
   end
 
   def new
@@ -19,6 +25,7 @@ class PinsController < ApplicationController
 
   def create
     @pin = current_user.pins.build(pin_params)
+    @pin.score=0
     if @pin.save
       redirect_to @pin, notice: 'Pin was successfully created.'
     else

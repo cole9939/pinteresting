@@ -5,7 +5,7 @@ class PinsController < ApplicationController
 
   def index
     @pins = Pin.all.order("created_at DESC")
-    @pins=@pins.sort_by{|e| -e[:score]}
+    @pins=@pins.sort_by{|e|-e[:score]} unless @pins
     @pins=Kaminari.paginate_array(@pins).page(params[:page]).per(50)
     @pin_scores_day=Pin.score_of_day
     @pin_scores_week=Pin.score_of_week

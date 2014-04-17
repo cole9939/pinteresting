@@ -1,12 +1,12 @@
 <table>
     <tr>
-      <td id="fb" style="padding: 18px 27px 14px 2px;">
+      <td id="fb" style="padding: 50px 27px 14px 2px;">
         <%= render :partial => "users/facebook" %>     
       </td>
-      <td id="tweet" style="padding: 52px 0px 0px;">
+      <td id="tweet" style="padding: 40px 0px 0px;">
         <%= render :partial => "users/tweet" %>     
       </td>
-      <td id="website" style="padding: 44px 0px 0px;">
+      <td id="website" style="padding: 32px 0px 0px;">
         <%if web_like(params[:id])%>
           <%= render :partial => "users/website_unlike" %>
         <%else%>
